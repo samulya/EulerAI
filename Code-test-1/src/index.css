@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0F172A;
+  --gold: #D4A017;
+  --white: #F8FAFC;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* KaTeX math rendering */
+.math-display {
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Prose for answer cards */
+.prose-math p {
+  margin-bottom: 0.75rem;
+  line-height: 1.75;
+}
+
+.prose-math code {
+  background: #f1f5f9;
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875em;
+  color: #1e3a5f;
+}
+
+/* Gradient backgrounds */
+.bg-navy-gradient {
+  background: linear-gradient(135deg, #0F172A 0%, #1e3a5f 100%);
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #D4A017 0%, #e4c524 100%);
+}
+
+/* Step connector */
+.step-connector::before {
+  content: '';
+  position: absolute;
+  left: 1.125rem;
+  top: 2.5rem;
+  bottom: -0.5rem;
+  width: 2px;
+  background: linear-gradient(to bottom, #D4A017, transparent);
+}
+
+/* PWA safe area */
+@supports (padding: max(0px)) {
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+  .safe-top {
+    padding-top: max(0px, env(safe-area-inset-top));
+  }
+}
+
+/* Mobile nav */
+.mobile-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Textarea auto-resize feel */
+textarea {
+  resize: none;
+}
+
+/* Focus rings */
+*:focus-visible {
+  outline: 2px solid #D4A017;
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: #D4A017;
+  color: #0F172A;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes thinking {
+  0%, 80%, 100% { transform: scale(0); opacity: 0; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+.thinking-dot:nth-child(1) { animation: thinking 1.4s ease-in-out 0s infinite; }
+.thinking-dot:nth-child(2) { animation: thinking 1.4s ease-in-out 0.2s infinite; }
+.thinking-dot:nth-child(3) { animation: thinking 1.4s ease-in-out 0.4s infinite; }

@@ -1,0 +1,20 @@
+{
+  "name": "Euler AI — The AI Mathematics Mentor",
+  "short_name": "Euler AI",
+  "description": "Personalized AI mathematics mentor from elementary to research level",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#0F172A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/euler-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "lang": "en"
+}
